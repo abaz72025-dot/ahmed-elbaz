@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahmed El Baz — Graphic Designer &amp; Art Director</title>
+<meta name="description" content="Ahmed El Baz is a graphic designer and art director crafting brand identities, campaigns, and visual systems across Saudi, Egyptian, and European markets.">
+
+<!--
+  ============================================================
+  AHMED EL BAZ — PORTFOLIO
+  HTML + CSS + vanilla JS only.
+  One Google webfont is loaded for the hero name only.
+
+  STRUCTURE
+  Home (#home) → About (#about) → Portfolio (#portfolio) →
+  five category case studies (#cat-logo-design, #cat-social-media,
+  #cat-visual-identity, #cat-banners-print, #cat-art) → Contact (#contact)
+
+  WHERE TO REPLACE THINGS
+  - Hero banner:        assets/hero/hero-banner.jpg
+  - Logo Design work:   assets/logo-design/   (already your real logos)
+  - Social Media work:  assets/social-media/  (placeholders — 5 brands)
+  - Visual Identity:    assets/visual-identity/  (placeholders)
+  - Banners & Print:    assets/banners-print/    (placeholders)
+  - Art:                assets/art/              (placeholders)
+  - Email / phone / social links: search for "REPLACE:" comments below
+  ============================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bonheur+Royale&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= LOADER ================= -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__inner">
+    <svg class="loader__line" viewBox="0 0 240 2" preserveAspectRatio="none">
+      <line x1="0" y1="1" x2="240" y2="1"></line>
+    </svg>
+    <span class="loader__mark">Ahmed El&nbsp;Baz</span>
+  </div>
+</div>
+
+<!-- ================= CURSOR FOLLOWER (desktop only) ================= -->
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+<!-- ================= SCROLL PROGRESS ================= -->
+<div class="progress-top" id="progressTop" aria-hidden="true"><span id="progressTopFill"></span></div>
+
+<!-- ================= HEADER ================= -->
+<header class="header" id="header">
+  <div class="header__bar">
+    <a href="#home" class="logo" aria-label="Ahmed El Baz — home">
+      <span class="logo__mark">AB</span>
+      <span class="logo__word">Ahmed&nbsp;El&nbsp;Baz</span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language" lang="ar">عربي</button>
+      <a href="#home" data-magnetic>
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5L12 4l9 7.5v6A2.5 2.5 0 0 1 18.5 21h-13A2.5 2.5 0 0 1 3 17.5v-6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <span data-i18n="nav.home">Home</span>
+      </a>
+      <a href="#about" data-magnetic>
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.6"></circle><path d="M4 20c0-3.9 3.6-7 8-7s8 3.1 8 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg>
+        <span data-i18n="nav.about">About</span>
+      </a>
+      <a href="#portfolio" data-magnetic>
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="7" height="7" rx="1" fill="none" stroke="currentColor" stroke-width="1.6"></rect><rect x="14" y="4" width="7" height="7" rx="1" fill="none" stroke="currentColor" stroke-width="1.6"></rect><rect x="3" y="14" width="7" height="7" rx="1" fill="none" stroke="currentColor" stroke-width="1.6"></rect></svg>
+        <span data-i18n="nav.portfolio">Portfolio</span>
+      </a>
+      <a href="#contact" data-magnetic>
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h1" fill="none" stroke="currentColor" stroke-width="1.6"></path><rect x="8" y="3" width="8" height="6" rx="1" fill="none" stroke="currentColor" stroke-width="1.6"></rect></svg>
+        <span data-i18n="nav.contact">Contact</span>
+      </a>
+    </nav>
+
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ================= MOBILE MENU ================= -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <nav aria-label="Mobile primary">
+    <a href="#home"><span data-i18n="nav.home">Home</span></a>
+    <a href="#about"><span data-i18n="nav.about">About</span></a>
+    <a href="#portfolio"><span data-i18n="nav.portfolio">Portfolio</span></a>
+    <a href="#contact"><span data-i18n="nav.contact">Contact</span></a>
+    <button class="lang-toggle" id="langToggleMobile" aria-label="Switch language" lang="ar">عربي</button>
+  </nav>
+  <div class="mobile-menu__meta">
+    <span lang="ar" dir="rtl" class="signature">باز</span>
+    <p data-i18n="mobile.location">Mansoura, Egypt — open to new projects</p>
+  </div>
+</div>
+
+<main id="mainContent">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="home">
+    <div class="hero__media" id="heroMedia">
+      <!-- REPLACE: swap for a different banner shot if you like — keep similar framing (subject right-of-centre) so the type on the left still reads -->
+      <img src="assets/hero/hero-banner.jpg" alt="Portrait of Ahmed El Baz" loading="eager" id="heroImg">
+      <div class="hero__scrim"></div>
+    </div>
+    <div class="hero__content" id="heroContent">
+      <p class="hero__eyebrow" data-reveal data-i18n="hero.eyebrow">Portfolio — 2026</p>
+      <h1 class="hero__name reveal-mask" data-reveal><span>Ahmed El Baz</span></h1>
+      <p class="hero__role" id="heroRole" data-i18n="hero.role">Graphic Designer &amp; Art Director</p>
+      <div class="hero__cta" id="heroCta">
+        <a href="#portfolio" class="btn btn--primary" data-cursor-hover data-magnetic data-i18n="hero.cta.primary">View Portfolio</a>
+        <a href="#about" class="btn btn--ghost" data-cursor-hover data-magnetic data-i18n="hero.cta.secondary">About Me</a>
+      </div>
+    </div>
+    <a href="#about" class="hero__scrolldown" data-cursor-hover aria-label="Scroll down"><span></span></a>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="about" id="about">
+    <p class="eyebrow" data-reveal data-i18n="about.eyebrow">About — 01</p>
+
+    <h2 class="mask-title" data-reveal><span data-i18n="about.headline">Seven years turning briefs into visual systems that hold together.</span></h2>
+    <p class="about__role" data-reveal data-i18n="about.role">Graphic Designer &amp; Art Director</p>
+
+    <div class="about__intro" data-reveal>
+      <p data-i18n="about.intro.p1">
+        Ahmed El Baz is a graphic designer and art director based in Egypt, working across
+        branding, social media design, campaign visuals, e‑commerce design, print, and illustration.
+        His process starts with the market and the audience, not the canvas — understanding who a
+        brand is speaking to before a single shape gets drawn.
+      </p>
+      <p data-i18n="about.intro.p2">
+        Over the past seven years he has led creative teams and shaped visual direction for clients
+        across Saudi Arabia, Egypt, and Europe, balancing aesthetics, function, and the kind of
+        attention to detail that keeps a brand consistent at scale.
+      </p>
+    </div>
+
+    <div class="identity-panel" data-reveal aria-label="Art Director identity and contact details">
+      <div class="identity-panel__heading">
+        <span data-i18n="identity.panel.heading">Art Director Identity Panel</span>
+        <span aria-hidden="true">AE / 01—04</span>
+      </div>
+
+      <div class="identity-panel__layout">
+        <article class="identity-card identity-card--social" data-identity-card>
+          <div class="identity-card__glow" aria-hidden="true"></div>
+          <header class="identity-card__header">
+            <div class="identity-card__meta">
+              <span class="identity-card__index">01</span>
+              <span class="identity-card__rule" aria-hidden="true"></span>
+              <span class="identity-card__label" data-i18n="identity.social.label">Social / Contact</span>
+            </div>
+            <svg class="identity-card__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 17.5 17.5 6M9 6h8.5v8.5"></path>
+            </svg>
+          </header>
+
+          <div class="identity-card__intro">
+            <p class="identity-card__eyebrow" data-i18n="identity.social.eyebrow">Selected channels</p>
+            <h3 data-i18n="identity.social.heading">Start a creative conversation.</h3>
+            <p data-i18n="identity.social.desc">For commissions, collaborations, and art direction enquiries.</p>
+          </div>
+
+          <nav class="identity-links" aria-label="Social profiles">
+            <a href="https://www.behance.net/ahmedel-baz" target="_blank" rel="noopener noreferrer" data-cursor-hover aria-label="Open Ahmed El Baz Behance profile">
+              <span class="identity-link__mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M5 6.5h5.2c2 0 3.3 1 3.3 2.7 0 1.1-.6 2-1.6 2.4 1.5.3 2.4 1.4 2.4 2.9 0 2-1.5 3-4.1 3H5zM5 11.5h5.1M16 9h4M15.8 13.1h4.2c0-1.6-.8-2.6-2.1-2.6-1.4 0-2.3 1.3-2.3 3.2 0 2 1 3.3 2.6 3.3 1 0 1.7-.4 2.2-1.1"></path></svg>
+              </span>
+              <span class="identity-link__name" data-i18n="social.behance">Behance</span>
+              <span class="identity-link__arrow" aria-hidden="true">↗</span>
+            </a>
+            <a href="https://www.linkedin.com/in/ahmed-el-baz-57165824a/" target="_blank" rel="noopener noreferrer" data-cursor-hover aria-label="Open Ahmed El Baz LinkedIn profile">
+              <span class="identity-link__mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="6.5" cy="6.5" r="1.2"></circle><path d="M5.3 10.2v7.5M10.1 17.7v-7.5M10.1 13.4c.7-2.2 4.1-3.5 5.9-1.2.5.6.7 1.4.7 2.3v3.2"></path></svg>
+              </span>
+              <span class="identity-link__name" data-i18n="social.linkedin">LinkedIn</span>
+              <span class="identity-link__arrow" aria-hidden="true">↗</span>
+            </a>
+            <a href="https://wa.me/201026509861" target="_blank" rel="noopener noreferrer" data-cursor-hover aria-label="Chat with Ahmed El Baz on WhatsApp">
+              <span class="identity-link__mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M20 11.7a8 8 0 0 1-11.8 7l-4.2 1.2 1.3-4A8 8 0 1 1 20 11.7Z"></path><path d="M8.5 8.2c.4 2.8 2.6 5 5.4 5.5l1.2-1.3 2 .9c-.4 1.7-1.5 2.5-3 2.3-4.1-.4-7.4-3.6-7.8-7.7-.2-1.4.6-2.6 2.3-3l1 2z"></path></svg>
+              </span>
+              <span class="identity-link__name" data-i18n="social.whatsapp">WhatsApp</span>
+              <span class="identity-link__arrow" aria-hidden="true">↗</span>
+            </a>
+          </nav>
+        </article>
+
+        <div class="identity-panel__meta">
+          <article class="identity-card identity-card--meta" data-identity-card>
+            <div class="identity-card__glow" aria-hidden="true"></div>
+            <header class="identity-card__header">
+              <div class="identity-card__meta">
+                <span class="identity-card__index">02</span>
+                <span class="identity-card__rule" aria-hidden="true"></span>
+                <span class="identity-card__label" data-i18n="identity.location.label">Location</span>
+              </div>
+              <svg class="identity-card__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"></path>
+                <circle cx="12" cy="10" r="2.2"></circle>
+              </svg>
+            </header>
+            <div>
+              <p class="identity-card__value" data-i18n="identity.location.value">Mansoura, Egypt</p>
+              <p class="identity-card__note" data-i18n="identity.location.note">Working across local and international markets</p>
+            </div>
+          </article>
+
+          <article class="identity-card identity-card--meta identity-card--time" data-identity-card>
+            <div class="identity-card__glow" aria-hidden="true"></div>
+            <header class="identity-card__header">
+              <div class="identity-card__meta">
+                <span class="identity-card__index">03</span>
+                <span class="identity-card__rule" aria-hidden="true"></span>
+                <span class="identity-card__label" data-i18n="identity.time.label">Local Time</span>
+              </div>
+              <svg class="identity-card__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="8.5"></circle>
+                <path d="M12 7.5v5l3.2 1.9"></path>
+              </svg>
+            </header>
+            <div>
+              <time class="identity-card__value identity-card__clock" id="liveClock" datetime="">—:—:—</time>
+              <p class="identity-card__note" data-i18n="identity.time.note">Cairo time / Africa</p>
+            </div>
+          </article>
+
+          <article class="identity-card identity-card--meta identity-card--availability" data-identity-card>
+            <div class="identity-card__glow" aria-hidden="true"></div>
+            <header class="identity-card__header">
+              <div class="identity-card__meta">
+                <span class="identity-card__index">04</span>
+                <span class="identity-card__rule" aria-hidden="true"></span>
+                <span class="identity-card__label" data-i18n="identity.availability.label">Availability</span>
+              </div>
+              <svg class="identity-card__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="8.5"></circle>
+                <path d="m8.5 12 2.2 2.2 4.8-5"></path>
+              </svg>
+            </header>
+            <div>
+              <p class="identity-card__value identity-card__status">
+                <span class="identity-card__status-dot" aria-hidden="true"></span>
+                <span data-i18n="identity.availability.value">Open for new projects</span>
+              </p>
+              <p class="identity-card__note" data-i18n="identity.availability.note">Brand identity, campaigns, and art direction</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="identity-panel__footer" aria-hidden="true">
+        <span data-i18n="identity.panel.footer.left">Mansoura — Cairo Time</span>
+        <span data-i18n="identity.panel.footer.right">Graphic Design / Art Direction</span>
+      </div>
+    </div>
+
+    <div class="about__tools" data-reveal>
+      <span class="about__toolslabel" data-i18n="about.tools.label">Tools</span>
+      <ul>
+        <li>Adobe Photoshop</li>
+        <li>Adobe Illustrator</li>
+        <li>Adobe InDesign</li>
+        <li>Adobe After Effects</li>
+        <li>Blender</li>
+      </ul>
+    </div>
+
+    <!-- Experience -->
+    <div class="about__sub career-section">
+      <div class="career-section__intro">
+        <h3 class="mask-title-sm" data-reveal><span data-i18n="career.headline">Six roles, one throughline.</span></h3>
+        <p class="experience__hint" data-reveal data-i18n="career.hint">Drag, scroll, or use the arrows</p>
+      </div>
+
+      <div class="career-panel" data-reveal aria-label="Career timeline">
+        <div class="career-panel__heading">
+          <span data-i18n="career.panel.heading">Career Archive</span>
+          <span>2019 — Present</span>
+        </div>
+
+        <div class="rail" id="experienceRail">
+          <div class="rail__track" id="experienceTrack">
+
+            <article class="rail__card is-active" data-panel-glow>
+              <div class="rail__glow" aria-hidden="true"></div>
+              <span class="rail__marker" aria-hidden="true"></span>
+              <header class="rail__meta">
+                <span class="rail__role-num">Role 01</span>
+                <span class="rail__meta-rule" aria-hidden="true"></span>
+                <span class="rail__years">2019 — 2020</span>
+              </header>
+              <div class="rail__content">
+                <h4 data-i18n="role01.title">Graphic Designer</h4>
+                <p class="rail__org" data-i18n="role01.org">Prestige Advertising &amp; Publicity Office, Mansoura</p>
+                <p data-i18n="role01.desc">Designed advertising and promotional material for local businesses, working across print and early brand campaigns.</p>
+              </div>
+            </article>
+
+            <article class="rail__card" data-panel-glow>
+              <div class="rail__glow" aria-hidden="true"></div>
+              <span class="rail__marker" aria-hidden="true"></span>
+              <header class="rail__meta">
+                <span class="rail__role-num">Role 02</span>
+                <span class="rail__meta-rule" aria-hidden="true"></span>
+                <span class="rail__years">2020 — 2021</span>
+              </header>
+              <div class="rail__content">
+                <h4 data-i18n="role02.title">Graphic Designer · Remote</h4>
+                <p class="rail__org" data-i18n="role02.org">Community Service &amp; Environmental Development Office, Mansoura University</p>
+                <p data-i18n="role02.desc">Produced educational and awareness campaign visuals, plus promotional material for university events.</p>
+              </div>
+            </article>
+
+            <article class="rail__card" data-panel-glow>
+              <div class="rail__glow" aria-hidden="true"></div>
+              <span class="rail__marker" aria-hidden="true"></span>
+              <header class="rail__meta">
+                <span class="rail__role-num">Role 03</span>
+                <span class="rail__meta-rule" aria-hidden="true"></span>
+                <span class="rail__years">2021 — 2022</span>
+              </header>
+              <div class="rail__content">
+                <h4 data-i18n="role03.title">Graphic Designer</h4>
+                <p class="rail__org" data-i18n="role03.org">Methaq Company, Mansoura</p>
+                <p data-i18n="role03.desc">Designed social media campaigns and branding material across multiple client accounts.</p>
+              </div>
+            </article>
+
+            <article class="rail__card" data-panel-glow>
+              <div class="rail__glow" aria-hidden="true"></div>
+              <span class="rail__marker" aria-hidden="true"></span>
+              <header class="rail__meta">
+                <span class="rail__role-num">Role 04</span>
+                <span class="rail__meta-rule" aria-hidden="true"></span>
+                <span class="rail__years">2022 — 2023</span>
+              </header>
+              <div class="rail__content">
+                <h4 data-i18n="role04.title">Graphic Designer · Remote</h4>
+                <p class="rail__org" data-i18n="role04.org">Frenzy Ice Cream Company</p>
+                <p data-i18n="role04.desc">Developed social and promotional visuals aligned with a single, consistent brand identity.</p>
+              </div>
+            </article>
+
+            <article class="rail__card" data-panel-glow>
+              <div class="rail__glow" aria-hidden="true"></div>
+              <span class="rail__marker" aria-hidden="true"></span>
+              <header class="rail__meta">
+                <span class="rail__role-num">Role 05</span>
+                <span class="rail__meta-rule" aria-hidden="true"></span>
+                <span class="rail__years">2023 — 2025</span>
+              </header>
+              <div class="rail__content">
+                <h4 data-i18n="role05.title">Graphic Designer</h4>
+                <p class="rail__org" data-i18n="role05.org">PLAN Marketing Company, Mansoura</p>
+                <p data-i18n="role05.desc">Built social and advertising visuals for clients across several industries, each tailored to its own audience.</p>
+              </div>
+            </article>
+
+            <article class="rail__card rail__card--current" data-panel-glow>
+              <div class="rail__glow" aria-hidden="true"></div>
+              <span class="rail__marker" aria-hidden="true"></span>
+              <header class="rail__meta">
+                <span class="rail__role-num">Role 06</span>
+                <span class="rail__meta-rule" aria-hidden="true"></span>
+                <span class="rail__years">2025 — Present</span>
+              </header>
+              <div class="rail__content">
+                <h4 data-i18n="role06.title">Graphic Designer &amp; Team Leader</h4>
+                <p class="rail__org" data-i18n="role06.org">GOSERVE Digital Marketing, Talkha</p>
+                <p data-i18n="role06.desc">Leading the design team — e‑commerce banners and social campaigns for Saudi, Egyptian, and European markets, with a focus on brand consistency at scale.</p>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <div class="career-panel__footer">
+          <span class="rail__position" id="railPosition" aria-live="polite">Role 01 / 06</span>
+          <div class="rail__nav" aria-label="Career timeline navigation">
+            <button id="railPrev" type="button" aria-label="Previous role" data-cursor-hover>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14.5 6-6 6 6 6"></path></svg>
+            </button>
+            <button id="railNext" type="button" aria-label="Next role" data-cursor-hover>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9.5 6 6 6-6 6"></path></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Services -->
+    <div class="about__sub services-section">
+      <h3 class="mask-title-sm" data-reveal><span data-i18n="services.headline">Where I can help.</span></h3>
+
+      <div class="services-panel" data-reveal aria-label="Creative services">
+        <div class="services-panel__heading">
+          <span data-i18n="services.panel.heading">Creative Practice</span>
+          <span data-i18n="services.panel.subheading">Selected Capabilities / 01—06</span>
+        </div>
+
+        <div class="services__grid" id="servicesTrack">
+          <article class="service service--feature" data-panel-glow data-cursor-hover>
+            <div class="service__glow" aria-hidden="true"></div>
+            <header class="service__meta">
+              <span class="service__num">01</span>
+              <span class="service__rule" aria-hidden="true"></span>
+              <span class="service__label" data-i18n="service01.label">Identity Systems</span>
+              <span class="service__arrow" aria-hidden="true">↗</span>
+            </header>
+            <div class="service__content">
+              <h4 data-i18n="service01.title">Brand Identity</h4>
+              <p data-i18n="service01.desc">Wordmarks, systems, and guidelines built to stay consistent as a brand grows.</p>
+            </div>
+          </article>
+
+          <article class="service" data-panel-glow data-cursor-hover>
+            <div class="service__glow" aria-hidden="true"></div>
+            <header class="service__meta">
+              <span class="service__num">02</span>
+              <span class="service__rule" aria-hidden="true"></span>
+              <span class="service__label" data-i18n="service02.label">Content Systems</span>
+              <span class="service__arrow" aria-hidden="true">↗</span>
+            </header>
+            <div class="service__content">
+              <h4 data-i18n="service02.title">Social Media Systems</h4>
+              <p data-i18n="service02.desc">Templated, on‑brand visual systems that keep a content calendar moving without losing polish.</p>
+            </div>
+          </article>
+
+          <article class="service" data-panel-glow data-cursor-hover>
+            <div class="service__glow" aria-hidden="true"></div>
+            <header class="service__meta">
+              <span class="service__num">03</span>
+              <span class="service__rule" aria-hidden="true"></span>
+              <span class="service__label" data-i18n="service03.label">Visual Direction</span>
+              <span class="service__arrow" aria-hidden="true">↗</span>
+            </header>
+            <div class="service__content">
+              <h4 data-i18n="service03.title">Campaign Art Direction</h4>
+              <p data-i18n="service03.desc">Concept‑to‑execution direction for campaigns that need a clear visual point of view.</p>
+            </div>
+          </article>
+
+          <article class="service" data-panel-glow data-cursor-hover>
+            <div class="service__glow" aria-hidden="true"></div>
+            <header class="service__meta">
+              <span class="service__num">04</span>
+              <span class="service__rule" aria-hidden="true"></span>
+              <span class="service__label" data-i18n="service04.label">Commerce</span>
+              <span class="service__arrow" aria-hidden="true">↗</span>
+            </header>
+            <div class="service__content">
+              <h4 data-i18n="service04.title">E‑commerce Visual Design</h4>
+              <p data-i18n="service04.desc">Banners, product layouts, and storefront visuals tuned for conversion and consistency.</p>
+            </div>
+          </article>
+
+          <article class="service" data-panel-glow data-cursor-hover>
+            <div class="service__glow" aria-hidden="true"></div>
+            <header class="service__meta">
+              <span class="service__num">05</span>
+              <span class="service__rule" aria-hidden="true"></span>
+              <span class="service__label" data-i18n="service05.label">Physical Design</span>
+              <span class="service__arrow" aria-hidden="true">↗</span>
+            </header>
+            <div class="service__content">
+              <h4 data-i18n="service05.title">Print &amp; Packaging</h4>
+              <p data-i18n="service05.desc">Material‑aware design for packaging and collateral — work that has to hold up in the hand.</p>
+            </div>
+          </article>
+
+          <article class="service" data-panel-glow data-cursor-hover>
+            <div class="service__glow" aria-hidden="true"></div>
+            <header class="service__meta">
+              <span class="service__num">06</span>
+              <span class="service__rule" aria-hidden="true"></span>
+              <span class="service__label" data-i18n="service06.label">Image Making</span>
+              <span class="service__arrow" aria-hidden="true">↗</span>
+            </header>
+            <div class="service__content">
+              <h4 data-i18n="service06.title">Illustration</h4>
+              <p data-i18n="service06.desc">Custom illustration and visual storytelling for brands that need a distinct, drawn voice.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="services-panel__footer">
+          <div class="services-panel__footer-copy">
+            <span data-i18n="services.panel.footer.left">Graphic Design / Art Direction</span>
+            <span data-i18n="services.panel.footer.right">Systems built to hold together</span>
+          </div>
+          <div class="services-slider__status">
+            <span class="services-slider__position" id="servicesPosition" aria-live="polite">Service 01 / 06</span>
+            <div class="services-slider__nav" aria-label="Services slider navigation">
+              <button id="servicesPrev" type="button" aria-label="Previous service" data-cursor-hover>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14.5 6-6 6 6 6"></path></svg>
+              </button>
+              <button id="servicesNext" type="button" aria-label="Next service" data-cursor-hover>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9.5 6 6 6-6 6"></path></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PORTFOLIO — CATEGORY OVERVIEW ================= -->
+  <section class="portfolio" id="portfolio">
+    <p class="eyebrow" data-reveal data-i18n="portfolio.eyebrow">Portfolio — 02</p>
+    <h2 class="mask-title" data-reveal><span data-i18n="portfolio.headline">Five ways to work together.</span></h2>
+    <p class="portfolio__intro" data-reveal data-i18n="portfolio.intro">Browse by category — each one opens into full case studies.</p>
+
+    <div class="portfolio-carousel" id="portfolioCarousel" data-reveal aria-roledescription="carousel" aria-label="Portfolio categories">
+      <div class="portfolio-carousel__heading">
+        <span data-i18n="portfolio.carousel.heading">Category Index</span>
+        <span data-i18n="portfolio.carousel.subheading">Curated Work / 01—05</span>
+      </div>
+
+      <div class="portfolio-carousel__viewport">
+        <div class="portfolio-track" id="portfolioTrack">
+          <a href="#cat-logo-design" class="portfolio-card portfolio-card--logo is-active" data-portfolio-card data-cursor-hover>
+            <div class="portfolio-card__top">
+              <span class="portfolio-card__num">01</span>
+              <span class="portfolio-card__rule" aria-hidden="true"></span>
+              <span class="portfolio-card__label" data-i18n="portfolio.cat.label">Category</span>
+              <span class="portfolio-card__arrow" aria-hidden="true">↗</span>
+            </div>
+            <div class="portfolio-card__media">
+              <img src="assets/logo-design/amira.png" alt="Amira logo mark" loading="lazy">
+            </div>
+            <div class="portfolio-card__body">
+              <h3 data-i18n="portfolio.cat.logo">Logo Design</h3>
+              <p data-i18n="portfolio.cat.logo.desc">Marks built to work small, large, and in one colour.</p>
+            </div>
+          </a>
+
+          <a href="#cat-social-media" class="portfolio-card is-next" data-portfolio-card data-cursor-hover>
+            <div class="portfolio-card__top">
+              <span class="portfolio-card__num">02</span>
+              <span class="portfolio-card__rule" aria-hidden="true"></span>
+              <span class="portfolio-card__label" data-i18n="portfolio.cat.label">Category</span>
+              <span class="portfolio-card__arrow" aria-hidden="true">↗</span>
+            </div>
+            <div class="portfolio-card__media">
+              <img src="assets/social-media/سوشيال.png" alt="Social media work preview" loading="lazy">
+            </div>
+            <div class="portfolio-card__body">
+              <h3 data-i18n="portfolio.cat.social">Social Media</h3>
+              <p data-i18n="portfolio.cat.social.desc">Content systems that keep a calendar moving without losing polish.</p>
+            </div>
+          </a>
+
+          <a href="#cat-visual-identity" class="portfolio-card is-far-next" data-portfolio-card data-cursor-hover>
+            <div class="portfolio-card__top">
+              <span class="portfolio-card__num">03</span>
+              <span class="portfolio-card__rule" aria-hidden="true"></span>
+              <span class="portfolio-card__label" data-i18n="portfolio.cat.label">Category</span>
+              <span class="portfolio-card__arrow" aria-hidden="true">↗</span>
+            </div>
+            <div class="portfolio-card__media">
+              <img src="assets/visual-identity/vi-00-direction.jpg" alt="Visual identity work preview" loading="lazy">
+            </div>
+            <div class="portfolio-card__body">
+              <h3 data-i18n="portfolio.cat.vi">Visual Identity</h3>
+              <p data-i18n="portfolio.cat.vi.desc">Full identity systems that hold together across every surface.</p>
+            </div>
+          </a>
+
+          <a href="#cat-banners-print" class="portfolio-card is-far-prev" data-portfolio-card data-cursor-hover>
+            <div class="portfolio-card__top">
+              <span class="portfolio-card__num">04</span>
+              <span class="portfolio-card__rule" aria-hidden="true"></span>
+              <span class="portfolio-card__label" data-i18n="portfolio.cat.label">Category</span>
+              <span class="portfolio-card__arrow" aria-hidden="true">↗</span>
+            </div>
+            <div class="portfolio-card__media">
+              <img src="assets/banners-print/bp-00-direction.jpg" alt="Banners and print work preview" loading="lazy">
+            </div>
+            <div class="portfolio-card__body">
+              <h3 data-i18n="portfolio.cat.banners">Banners &amp; Print</h3>
+              <p data-i18n="portfolio.cat.banners.desc">Material‑aware design for packaging, signage, and print.</p>
+            </div>
+          </a>
+
+          <a href="#cat-art" class="portfolio-card is-prev" data-portfolio-card data-cursor-hover>
+            <div class="portfolio-card__top">
+              <span class="portfolio-card__num">05</span>
+              <span class="portfolio-card__rule" aria-hidden="true"></span>
+              <span class="portfolio-card__label" data-i18n="portfolio.cat.label">Category</span>
+              <span class="portfolio-card__arrow" aria-hidden="true">↗</span>
+            </div>
+            <div class="portfolio-card__media">
+              <img src="assets/art/art-00-direction.jpg" alt="Illustration work preview" loading="lazy">
+            </div>
+            <div class="portfolio-card__body">
+              <h3 data-i18n="portfolio.cat.art">Art</h3>
+              <p data-i18n="portfolio.cat.art.desc">Illustration and visual studies, made for their own sake.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="portfolio-carousel__footer">
+        <span class="portfolio-carousel__counter" id="portfolioCounter" aria-live="polite">01 / 05</span>
+        <div class="portfolio-carousel__dots" id="portfolioDots" aria-label="Choose portfolio category"></div>
+        <div class="portfolio-carousel__nav" aria-label="Portfolio carousel navigation">
+          <button id="portfolioPrev" type="button" class="carousel-arrow" aria-label="Previous category" data-cursor-hover>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14.5 6-6 6 6 6"></path></svg>
+          </button>
+          <button id="portfolioNext" type="button" class="carousel-arrow" aria-label="Next category" data-cursor-hover>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9.5 6 6 6-6 6"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CASE STUDY: LOGO DESIGN ================= -->
+  <section class="case case--logo" id="cat-logo-design" data-category>
+    <a class="case__back" href="#portfolio" data-cursor-hover data-i18n="case.back">&larr; All Categories</a>
+    <p class="eyebrow" data-reveal data-i18n="logo.eyebrow">Portfolio - Logo Design</p>
+    <h2 class="mask-title reveal-mask" data-reveal><span data-i18n="logo.headline">Logo Design Case Studies</span></h2>
+    <p class="case__overview" data-reveal data-i18n="logo.overview">A focused collection of logo and brand mark projects across digital marketing, fashion, and food branding.</p>
+
+    <div class="logo-groups" data-reveal aria-label="Logo projects grouped by business category">
+      <div class="logo-group">
+        <span data-i18n="logo.group.digital">Digital Marketing</span>
+        <strong>Plan, Trend, GoServe, Ebdea</strong>
+      </div>
+      <div class="logo-group">
+        <span data-i18n="logo.group.abaya">Abaya Stores</span>
+        <strong>Amira, Rozan</strong>
+      </div>
+      <div class="logo-group">
+        <span data-i18n="logo.group.dairy">Dairy Store</span>
+        <strong>Natural Pure</strong>
+      </div>
+    </div>
+
+    <div class="logo-index" aria-label="Logo project index">
+      <a href="#logo-plan" class="logo-index-card" data-reveal data-cursor-hover>
+        <div class="logo-index-card__media"><img src="assets/logo-design/plan-marketing.png" alt="Plan logo" loading="lazy"></div>
+        <div class="logo-index-card__body">
+          <span data-i18n="logo.plan.category">Digital Marketing Company</span>
+          <h3>Plan</h3>
+          <p data-i18n="logo.plan.desc">A strategic mark built around focus, planning, and measured progress.</p>
+        </div>
+      </a>
+      <a href="#logo-trend" class="logo-index-card" data-reveal data-cursor-hover>
+        <div class="logo-index-card__media"><img src="assets/logo-design/arabic-wordmark.png" alt="Trend Arabic logo" loading="lazy"></div>
+        <div class="logo-index-card__body">
+          <span data-i18n="logo.trend.category">Digital Marketing Company</span>
+          <h3>Trend</h3>
+          <p data-i18n="logo.trend.desc">Custom Arabic lettering shaped for speed, visibility, and social movement.</p>
+        </div>
+      </a>
+      <a href="#logo-goserv" class="logo-index-card" data-reveal data-cursor-hover>
+        <div class="logo-index-card__media"><img src="assets/logo-design/goserve.png" alt="GoServ logo" loading="lazy"></div>
+        <div class="logo-index-card__body">
+          <span data-i18n="logo.goserv.category">Digital Marketing Company</span>
+          <h3>GoServ</h3>
+          <p data-i18n="logo.goserv.desc">A direct wordmark for fast, simple, and reliable service delivery.</p>
+        </div>
+      </a>
+      <a href="#logo-ebdea" class="logo-index-card" data-reveal data-cursor-hover>
+        <div class="logo-index-card__media"><img src="assets/logo-design/ebdea.png" alt="Ebdea logo" loading="lazy"></div>
+        <div class="logo-index-card__body">
+          <span data-i18n="logo.ebdea.category">Digital Marketing Company</span>
+          <h3>Ebdea</h3>
+          <p data-i18n="logo.ebdea.desc">A friendly creative-agency identity built around ideas and expression.</p>
+        </div>
+      </a>
+      <a href="#logo-amira" class="logo-index-card" data-reveal data-cursor-hover>
+        <div class="logo-index-card__media"><img src="assets/logo-design/amira.png" alt="Amira logo" loading="lazy"></div>
+        <div class="logo-index-card__body">
+          <span data-i18n="logo.amira.category">Abaya Store</span>
+          <h3>Amira</h3>
+          <p data-i18n="logo.amira.desc">A refined fashion mark with royal cues and modest luxury.</p>
+        </div>
+      </a>
+      <a href="#logo-rozan" class="logo-index-card" data-reveal data-cursor-hover>
+        <div class="logo-index-card__media"><img src="assets/logo-design/rozan.png" alt="Rozan logo" loading="lazy"></div>
+        <div class="logo-index-card__body">
+          <span data-i18n="logo.rozan.category">Abaya Store</span>
+          <h3>Rozan</h3>
+          <p data-i18n="logo.rozan.desc">A bilingual fashion identity with floral softness and cultural elegance.</p>
+        </div>
+      </a>
+      <a href="#logo-natural-pure" class="logo-index-card" data-reveal data-cursor-hover>
+        <div class="logo-index-card__media"><img src="assets/logo-design/nature-pure.png" alt="Natural Pure logo" loading="lazy"></div>
+        <div class="logo-index-card__body">
+          <span data-i18n="logo.natural.category">Dairy Store</span>
+          <h3>Natural Pure</h3>
+          <p data-i18n="logo.natural.desc">A fresh dairy mark that communicates purity, trust, and farm quality.</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="logo-studies">
+      <article class="logo-case" id="logo-plan" data-reveal>
+        <div class="logo-case__content">
+          <span class="logo-case__num">01</span>
+          <p class="logo-case__category" data-i18n="logo.plan.category">Digital Marketing Company</p>
+          <h3>Plan</h3>
+          <dl class="logo-case__facts">
+            <div><dt data-i18n="logo.case.factlabel1">Brand category</dt><dd data-i18n="logo.plan.category">Digital Marketing Company</dd></div>
+            <div><dt data-i18n="logo.case.factlabel2">Project type</dt><dd data-i18n="logo.case.plan.type">Logo Design / Brand Identity</dd></div>
+          </dl>
+          <div class="logo-case__copy">
+            <div><h4 data-i18n="logo.case.h4.overview">Project overview</h4><p data-i18n="logo.case.plan.p1">Plan needed a clear, strategic identity that could feel organized and confident across digital touchpoints.</p></div>
+            <div><h4 data-i18n="logo.case.h4.challenge">Design challenge</h4><p data-i18n="logo.case.plan.p2">The mark had to communicate strategy and focus without becoming too corporate or complex at small sizes.</p></div>
+            <div><h4 data-i18n="logo.case.h4.concept">Creative concept</h4><p data-i18n="logo.case.plan.p3">The letter P becomes a bold circular mark suggesting focus and targeting, while the lower horizontal elements suggest steps, planning, and progress.</p></div>
+            <div><h4 data-i18n="logo.case.h4.execution">Visual execution</h4><p data-i18n="logo.case.plan.p4">Clean geometry, strong contrast, and a balanced construction give the identity a disciplined digital-first presence.</p></div>
+            <div><h4 data-i18n="logo.case.h4.applications">Suggested applications</h4><p data-i18n="logo.case.plan.p5">Social media avatars, strategy decks, campaign proposals, digital ads, presentation covers, and brand stationery.</p></div>
+            <div><h4 data-i18n="logo.case.h4.caption">Portfolio caption</h4><p data-i18n="logo.case.plan.p6">A focused identity system for a marketing brand built around clarity, planning, and forward motion.</p></div>
+          </div>
+        </div>
+        <div class="logo-case__visual">
+          <div class="logo-case__preview logo-case__preview--dark" data-reveal data-parallax="0.025">
+            <div class="reveal-img"><div class="reveal-img__inner"><img src="assets/logo-design/plan-marketing.png" alt="Plan logo hero preview" loading="lazy"></div></div>
+          </div>
+          <div class="logo-case__mockups" aria-label="Plan suggested logo applications">
+            <span data-i18n="logo.case.plan.mockup1">Social avatar</span><span data-i18n="logo.case.plan.mockup2">Strategy deck</span><span data-i18n="logo.case.plan.mockup3">Stationery</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="logo-case" id="logo-trend" data-reveal>
+        <div class="logo-case__content">
+          <span class="logo-case__num">02</span>
+          <p class="logo-case__category" data-i18n="logo.trend.category">Digital Marketing Company</p>
+          <h3>Trend</h3>
+          <dl class="logo-case__facts">
+            <div><dt data-i18n="logo.case.factlabel1">Brand category</dt><dd data-i18n="logo.trend.category">Digital Marketing Company</dd></div>
+            <div><dt data-i18n="logo.case.factlabel2">Project type</dt><dd data-i18n="logo.case.trend.type">Arabic Logo Design / Digital Identity</dd></div>
+          </dl>
+          <div class="logo-case__copy">
+            <div><h4 data-i18n="logo.case.h4.overview">Project overview</h4><p data-i18n="logo.case.trend.p1">Trend is positioned for social media and digital visibility, with an identity that needs to feel active, current, and culturally relevant.</p></div>
+            <div><h4 data-i18n="logo.case.h4.challenge">Design challenge</h4><p data-i18n="logo.case.trend.p2">The Arabic lettering needed to carry personality and movement while staying readable across fast-scrolling digital placements.</p></div>
+            <div><h4 data-i18n="logo.case.h4.concept">Creative concept</h4><p data-i18n="logo.case.trend.p3">The custom Arabic lettering creates movement and reflects the fast-changing nature of trends, giving the logo a sense of speed and visibility.</p></div>
+            <div><h4 data-i18n="logo.case.h4.execution">Visual execution</h4><p data-i18n="logo.case.trend.p4">Dynamic letterforms, compact rhythm, and confident spacing create a flexible wordmark with a strong social-media personality.</p></div>
+            <div><h4 data-i18n="logo.case.h4.applications">Suggested applications</h4><p data-i18n="logo.case.trend.p5">Social profile images, reels covers, campaign openers, motion graphics, digital banners, and content templates.</p></div>
+            <div><h4 data-i18n="logo.case.h4.caption">Portfolio caption</h4><p data-i18n="logo.case.trend.p6">An Arabic digital identity shaped to move quickly, read clearly, and stay relevant in trend-led communication.</p></div>
+          </div>
+        </div>
+        <div class="logo-case__visual">
+          <div class="logo-case__preview logo-case__preview--dark" data-reveal data-parallax="0.025">
+            <div class="reveal-img"><div class="reveal-img__inner"><img src="assets/logo-design/arabic-wordmark.png" alt="Trend Arabic logo hero preview" loading="lazy"></div></div>
+          </div>
+          <div class="logo-case__mockups" aria-label="Trend suggested logo applications">
+            <span data-i18n="logo.case.trend.mockup1">Reels cover</span><span data-i18n="logo.case.trend.mockup2">Motion intro</span><span data-i18n="logo.case.trend.mockup3">Profile mark</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="logo-case" id="logo-goserv" data-reveal>
+        <div class="logo-case__content">
+          <span class="logo-case__num">03</span>
+          <p class="logo-case__category" data-i18n="logo.goserv.category">Digital Marketing Company</p>
+          <h3>GoServ</h3>
+          <dl class="logo-case__facts">
+            <div><dt data-i18n="logo.case.factlabel1">Brand category</dt><dd data-i18n="logo.goserv.category">Digital Marketing Company</dd></div>
+            <div><dt data-i18n="logo.case.factlabel2">Project type</dt><dd data-i18n="logo.case.goserv.type">Wordmark Logo Design</dd></div>
+          </dl>
+          <div class="logo-case__copy">
+            <div><h4 data-i18n="logo.case.h4.overview">Project overview</h4><p data-i18n="logo.case.goserv.p1">GoServ needed a simple, recognizable wordmark for a service-driven brand with a practical digital presence.</p></div>
+            <div><h4 data-i18n="logo.case.h4.challenge">Design challenge</h4><p data-i18n="logo.case.goserv.p2">The identity had to look quick and dependable without relying on decorative symbols or complicated brand elements.</p></div>
+            <div><h4 data-i18n="logo.case.h4.concept">Creative concept</h4><p data-i18n="logo.case.goserv.p3">The bold uppercase wordmark gives the brand strong visibility and a direct digital-first personality built around speed, simplicity, and reliability.</p></div>
+            <div><h4 data-i18n="logo.case.h4.execution">Visual execution</h4><p data-i18n="logo.case.goserv.p4">Heavy letter weight, compact proportions, and clear spacing keep the wordmark readable across web, app, and advertising formats.</p></div>
+            <div><h4 data-i18n="logo.case.h4.applications">Suggested applications</h4><p data-i18n="logo.case.goserv.p5">App headers, service dashboards, social ads, delivery graphics, proposal templates, and signage.</p></div>
+            <div><h4 data-i18n="logo.case.h4.caption">Portfolio caption</h4><p data-i18n="logo.case.goserv.p6">A straightforward service wordmark designed for quick recognition and confident digital use.</p></div>
+          </div>
+        </div>
+        <div class="logo-case__visual">
+          <div class="logo-case__preview logo-case__preview--dark" data-reveal data-parallax="0.025">
+            <div class="reveal-img"><div class="reveal-img__inner"><img src="assets/logo-design/goserve.png" alt="GoServ logo hero preview" loading="lazy"></div></div>
+          </div>
+          <div class="logo-case__mockups" aria-label="GoServ suggested logo applications">
+            <span data-i18n="logo.case.goserv.mockup1">App header</span><span data-i18n="logo.case.goserv.mockup2">Service ad</span><span data-i18n="logo.case.goserv.mockup3">Signage</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="logo-case" id="logo-ebdea" data-reveal>
+        <div class="logo-case__content">
+          <span class="logo-case__num">04</span>
+          <p class="logo-case__category" data-i18n="logo.ebdea.category">Digital Marketing Company</p>
+          <h3>Ebdea</h3>
+          <dl class="logo-case__facts">
+            <div><dt data-i18n="logo.case.factlabel1">Brand category</dt><dd data-i18n="logo.ebdea.category">Digital Marketing Company</dd></div>
+            <div><dt data-i18n="logo.case.factlabel2">Project type</dt><dd data-i18n="logo.case.ebdea.type">Creative Agency Logo Design</dd></div>
+          </dl>
+          <div class="logo-case__copy">
+            <div><h4 data-i18n="logo.case.h4.overview">Project overview</h4><p data-i18n="logo.case.ebdea.p1">Ebdea needed an approachable creative-agency identity that could communicate imagination, conversation, and visual production.</p></div>
+            <div><h4 data-i18n="logo.case.h4.challenge">Design challenge</h4><p data-i18n="logo.case.ebdea.p2">The logo had to feel expressive and creative while remaining professional enough for client-facing agency work.</p></div>
+            <div><h4 data-i18n="logo.case.h4.concept">Creative concept</h4><p data-i18n="logo.case.ebdea.p3">The stylized lowercase e and flowing typography create a friendly creative-agency feeling connected to ideas, communication, and creative energy.</p></div>
+            <div><h4 data-i18n="logo.case.h4.execution">Visual execution</h4><p data-i18n="logo.case.ebdea.p4">Rounded forms, fluid curves, and a compact symbol-to-wordmark relationship give the identity warmth and visual confidence.</p></div>
+            <div><h4 data-i18n="logo.case.h4.applications">Suggested applications</h4><p data-i18n="logo.case.ebdea.p5">Agency profiles, creative proposals, social media templates, campaign presentations, merch, and motion stings.</p></div>
+            <div><h4 data-i18n="logo.case.h4.caption">Portfolio caption</h4><p data-i18n="logo.case.ebdea.p6">A warm agency logo that turns creative energy into a clear and memorable visual voice.</p></div>
+          </div>
+        </div>
+        <div class="logo-case__visual">
+          <div class="logo-case__preview logo-case__preview--dark" data-reveal data-parallax="0.025">
+            <div class="reveal-img"><div class="reveal-img__inner"><img src="assets/logo-design/ebdea.png" alt="Ebdea logo hero preview" loading="lazy"></div></div>
+          </div>
+          <div class="logo-case__mockups" aria-label="Ebdea suggested logo applications">
+            <span data-i18n="logo.case.ebdea.mockup1">Proposal cover</span><span data-i18n="logo.case.ebdea.mockup2">Social kit</span><span data-i18n="logo.case.ebdea.mockup3">Motion sting</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="logo-case" id="logo-amira" data-reveal>
+        <div class="logo-case__content">
+          <span class="logo-case__num">05</span>
+          <p class="logo-case__category" data-i18n="logo.amira.category">Abaya Store</p>
+          <h3>Amira</h3>
+          <dl class="logo-case__facts">
+            <div><dt data-i18n="logo.case.factlabel1">Brand category</dt><dd data-i18n="logo.amira.category">Abaya Store</dd></div>
+            <div><dt data-i18n="logo.case.factlabel2">Project type</dt><dd data-i18n="logo.case.amira.type">Fashion Logo Design</dd></div>
+          </dl>
+          <div class="logo-case__copy">
+            <div><h4 data-i18n="logo.case.h4.overview">Project overview</h4><p data-i18n="logo.case.amira.p1">Amira required a boutique fashion identity that could express elegance, femininity, and a premium modestwear tone.</p></div>
+            <div><h4 data-i18n="logo.case.h4.challenge">Design challenge</h4><p data-i18n="logo.case.amira.p2">The brand needed to feel luxurious without becoming overly ornate, and refined without losing softness.</p></div>
+            <div><h4 data-i18n="logo.case.h4.concept">Creative concept</h4><p data-i18n="logo.case.amira.p3">The royal-inspired symbol supports the meaning of the name Amira and creates a premium fashion identity rooted in modest luxury.</p></div>
+            <div><h4 data-i18n="logo.case.h4.execution">Visual execution</h4><p data-i18n="logo.case.amira.p4">Elegant line work, balanced symmetry, and refined typography create a mark that feels polished for boutique retail.</p></div>
+            <div><h4 data-i18n="logo.case.h4.applications">Suggested applications</h4><p data-i18n="logo.case.amira.p5">Garment tags, boutique signage, shopping bags, packaging seals, social posts, and embroidery details.</p></div>
+            <div><h4 data-i18n="logo.case.h4.caption">Portfolio caption</h4><p data-i18n="logo.case.amira.p6">A premium abaya-store identity shaped around feminine refinement and royal elegance.</p></div>
+          </div>
+        </div>
+        <div class="logo-case__visual">
+          <div class="logo-case__preview logo-case__preview--dark" data-reveal data-parallax="0.025">
+            <div class="reveal-img"><div class="reveal-img__inner"><img src="assets/logo-design/amira.png" alt="Amira logo hero preview" loading="lazy"></div></div>
+          </div>
+          <div class="logo-case__mockups" aria-label="Amira suggested logo applications">
+            <span data-i18n="logo.case.amira.mockup1">Garment tag</span><span data-i18n="logo.case.amira.mockup2">Shopping bag</span><span data-i18n="logo.case.amira.mockup3">Packaging seal</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="logo-case" id="logo-rozan" data-reveal>
+        <div class="logo-case__content">
+          <span class="logo-case__num">06</span>
+          <p class="logo-case__category" data-i18n="logo.rozan.category">Abaya Store</p>
+          <h3>Rozan</h3>
+          <dl class="logo-case__facts">
+            <div><dt data-i18n="logo.case.factlabel1">Brand category</dt><dd data-i18n="logo.rozan.category">Abaya Store</dd></div>
+            <div><dt data-i18n="logo.case.factlabel2">Project type</dt><dd data-i18n="logo.case.rozan.type">Arabic / English Fashion Identity</dd></div>
+          </dl>
+          <div class="logo-case__copy">
+            <div><h4 data-i18n="logo.case.h4.overview">Project overview</h4><p data-i18n="logo.case.rozan.p1">Rozan needed a bilingual fashion identity that could connect Arabic elegance with a modern boutique voice.</p></div>
+            <div><h4 data-i18n="logo.case.h4.challenge">Design challenge</h4><p data-i18n="logo.case.rozan.p2">The logo had to balance emotion and readability across Arabic and English, while still feeling soft and fashion-focused.</p></div>
+            <div><h4 data-i18n="logo.case.h4.concept">Creative concept</h4><p data-i18n="logo.case.rozan.p3">The floral symbol adds softness and beauty, while the bilingual Arabic/English structure gives the logo both emotion and readability.</p></div>
+            <div><h4 data-i18n="logo.case.h4.execution">Visual execution</h4><p data-i18n="logo.case.rozan.p4">Graceful floral geometry, delicate line balance, and a clear bilingual lockup create cultural refinement without sacrificing clarity.</p></div>
+            <div><h4 data-i18n="logo.case.h4.applications">Suggested applications</h4><p data-i18n="logo.case.rozan.p5">Storefront signage, garment labels, packaging cards, Instagram highlights, boutique tags, and seasonal lookbooks.</p></div>
+            <div><h4 data-i18n="logo.case.h4.caption">Portfolio caption</h4><p data-i18n="logo.case.rozan.p6">A bilingual abaya identity that combines softness, Arabic elegance, and modern boutique clarity.</p></div>
+          </div>
+        </div>
+        <div class="logo-case__visual">
+          <div class="logo-case__preview logo-case__preview--dark" data-reveal data-parallax="0.025">
+            <div class="reveal-img"><div class="reveal-img__inner"><img src="assets/logo-design/rozan.png" alt="Rozan logo hero preview" loading="lazy"></div></div>
+          </div>
+          <div class="logo-case__mockups" aria-label="Rozan suggested logo applications">
+            <span data-i18n="logo.case.rozan.mockup1">Storefront</span><span data-i18n="logo.case.rozan.mockup2">Garment label</span><span data-i18n="logo.case.rozan.mockup3">Lookbook</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="logo-case" id="logo-natural-pure" data-reveal>
+        <div class="logo-case__content">
+          <span class="logo-case__num">07</span>
+          <p class="logo-case__category" data-i18n="logo.natural.category">Dairy Store</p>
+          <h3>Natural Pure</h3>
+          <dl class="logo-case__facts">
+            <div><dt data-i18n="logo.case.factlabel1">Brand category</dt><dd data-i18n="logo.natural.category">Dairy Store</dd></div>
+            <div><dt data-i18n="logo.case.factlabel2">Project type</dt><dd data-i18n="logo.case.natural.type">Food / Dairy Logo Design</dd></div>
+          </dl>
+          <div class="logo-case__copy">
+            <div><h4 data-i18n="logo.case.h4.overview">Project overview</h4><p data-i18n="logo.case.natural.p1">Natural Pure needed a food identity that could quickly communicate freshness, purity, farm-based quality, and trust.</p></div>
+            <div><h4 data-i18n="logo.case.h4.challenge">Design challenge</h4><p data-i18n="logo.case.natural.p2">The logo had to feel natural and approachable while making the dairy category instantly clear to customers.</p></div>
+            <div><h4 data-i18n="logo.case.h4.concept">Creative concept</h4><p data-i18n="logo.case.natural.p3">The cow-inspired symbol connects instantly to dairy products, while the rounded form creates a friendly and natural impression.</p></div>
+            <div><h4 data-i18n="logo.case.h4.execution">Visual execution</h4><p data-i18n="logo.case.natural.p4">Soft rounded geometry, fresh color contrast, and a clear symbol-wordmark relationship make the identity easy to recognize on shelves and screens.</p></div>
+            <div><h4 data-i18n="logo.case.h4.applications">Suggested applications</h4><p data-i18n="logo.case.natural.p5">Milk bottles, yogurt cups, shop signage, delivery bags, menu boards, labels, and social product posts.</p></div>
+            <div><h4 data-i18n="logo.case.h4.caption">Portfolio caption</h4><p data-i18n="logo.case.natural.p6">A friendly dairy logo built to communicate freshness, purity, and everyday trust.</p></div>
+          </div>
+        </div>
+        <div class="logo-case__visual">
+          <div class="logo-case__preview logo-case__preview--dark" data-reveal data-parallax="0.025">
+            <div class="reveal-img"><div class="reveal-img__inner"><img src="assets/logo-design/nature-pure.png" alt="Natural Pure logo hero preview" loading="lazy"></div></div>
+          </div>
+          <div class="logo-case__mockups" aria-label="Natural Pure suggested logo applications">
+            <span data-i18n="logo.case.natural.mockup1">Milk bottle</span><span data-i18n="logo.case.natural.mockup2">Shop sign</span><span data-i18n="logo.case.natural.mockup3">Product label</span>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="case__nav">
+      <a href="#cat-art" data-cursor-hover data-i18n="logo.nav.prev">&larr; Art</a>
+      <a href="#cat-social-media" data-cursor-hover data-i18n="logo.nav.next">Social Media &rarr;</a>
+    </div>
+  </section>
+
+  <!-- ================= CASE STUDY: SOCIAL MEDIA (5 real brands) ================= -->
+  <section class="case case--social" id="cat-social-media" data-category>
+    <a class="case__back" href="#portfolio" data-cursor-hover data-i18n="case.back">← All Categories</a>
+    <p class="eyebrow" data-reveal data-i18n="social.eyebrow">Portfolio — Social Media</p>
+    <h2 class="mask-title" data-reveal><span data-i18n="social.headline">Social Media Systems</span></h2>
+    <p class="case__overview" data-reveal data-i18n="social.overview">Five brands, five different rhythms — each with its own Instagram system built to stay consistent at scale.</p>
+
+    <!-- Plan Marketing Company -->
+    <div class="brand" data-reveal>
+      <div class="brand__hero" data-parallax="0.04" data-reveal>
+        <div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/plan-hero.jpg" alt="Plan Marketing Company Instagram campaign cover" loading="lazy"></div></div>
+        <div class="brand__heroOverlay"><span class="brand__num">01</span><h3>Plan Marketing Company</h3><span class="brand__tag" data-i18n="social.plan.tag">Marketing &amp; Strategy</span></div>
+      </div>
+      <div class="brand__body">
+        <p class="brand__overview" data-i18n="social.plan.overview">A coordinated Instagram campaign built on a bold blue identity and oversized Arabic typography — translating strategy, growth, and conversion into a connected social grid.</p>
+        <div class="brand__gallery">
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/plan-post-01.jpg" alt="Plan Marketing Company Instagram post" loading="lazy"></div></div></div>
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/plan-post-02.jpg" alt="Plan Marketing Company Instagram post" loading="lazy"></div></div></div>
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/plan-post-03.jpg" alt="Plan Marketing Company Instagram post" loading="lazy"></div></div></div>
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/plan-post-04.jpg" alt="Plan Marketing Company Instagram post" loading="lazy"></div></div></div>
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/plan-post-05.jpg" alt="Plan Marketing Company Instagram post" loading="lazy"></div></div></div>
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/plan-post-06.jpg" alt="Plan Marketing Company Instagram post" loading="lazy"></div></div></div>
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/plan-post-07.jpg" alt="Plan Marketing Company Instagram post" loading="lazy"></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LUVIA -->
+    <div class="brand" data-reveal>
+      <div class="brand__hero" data-parallax="0.04" data-reveal>
+        <div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/luvia-hero.jpg" alt="LUVIA Instagram campaign cover" loading="lazy"></div></div>
+        <div class="brand__heroOverlay"><span class="brand__num">02</span><h3>LUVIA</h3><span class="brand__tag" data-i18n="social.luvia.tag">Skincare · Haircare · Sun‑care</span></div>
+      </div>
+      <div class="brand__body">
+        <p class="brand__overview" data-i18n="social.luvia.overview">A premium, flexible social system for a skincare and haircare label — botanical greens, clean whites, and warm sunscreen‑orange accents built around hero product compositions.</p>
+        <div class="brand__gallery">
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/luvia-post-01.jpg" alt="LUVIA Instagram post" loading="lazy"></div></div></div>
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/luvia-post-02.jpg" alt="LUVIA Instagram post" loading="lazy"></div></div></div>
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/luvia-post-03.jpg" alt="LUVIA Instagram post" loading="lazy"></div></div></div>
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/luvia-post-04.jpg" alt="LUVIA Instagram post" loading="lazy"></div></div></div>
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/luvia-post-05.jpg" alt="LUVIA Instagram post" loading="lazy"></div></div></div>
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/luvia-post-06.jpg" alt="LUVIA Instagram post" loading="lazy"></div></div></div>
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/luvia-post-07.jpg" alt="LUVIA Instagram post" loading="lazy"></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Palm Hills Resorts -->
+    <div class="brand" data-reveal>
+      <div class="brand__hero" data-parallax="0.04" data-reveal>
+        <div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/palmhills-hero.jpg" alt="Palm Hills Resorts Instagram campaign cover" loading="lazy"></div></div>
+        <div class="brand__heroOverlay"><span class="brand__num">03</span><h3>Palm Hills Resorts</h3><span class="brand__tag" data-i18n="social.palmhills.tag">Hospitality &amp; Real Estate</span></div>
+      </div>
+      <div class="brand__body">
+        <p class="brand__overview" data-i18n="social.palmhills.overview">A hospitality campaign built around a private villa experience — architectural photography, sea and pool visuals, and warm gold accents positioning the resort as luxurious yet approachable.</p>
+        <div class="brand__gallery">
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/palmhills-post-01.jpg" alt="Palm Hills Resorts Instagram post" loading="lazy"></div></div></div>
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/palmhills-post-02.jpg" alt="Palm Hills Resorts Instagram post" loading="lazy"></div></div></div>
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/palmhills-post-03.jpg" alt="Palm Hills Resorts Instagram post" loading="lazy"></div></div></div>
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/palmhills-post-04.jpg" alt="Palm Hills Resorts Instagram post" loading="lazy"></div></div></div>
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/palmhills-post-05.jpg" alt="Palm Hills Resorts Instagram post" loading="lazy"></div></div></div>
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/palmhills-post-06.jpg" alt="Palm Hills Resorts Instagram post" loading="lazy"></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ebdea Digital Marketing -->
+    <div class="brand" data-reveal>
+      <div class="brand__hero" data-parallax="0.04" data-reveal>
+        <div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/ebdea-hero.jpg" alt="Ebdea Digital Marketing Instagram campaign cover" loading="lazy"></div></div>
+        <div class="brand__heroOverlay"><span class="brand__num">04</span><h3>Ebdea Digital Marketing</h3><span class="brand__tag" data-i18n="social.ebdea.tag">Digital Marketing Agency</span></div>
+      </div>
+      <div class="brand__body">
+        <p class="brand__overview" data-i18n="social.ebdea.overview">A golden‑toned campaign for a digital marketing agency — bold Arabic typography, Saudi cultural cues, and seasonal Ramadan &amp; Eid content built around attention, visibility, and growth.</p>
+        <div class="brand__gallery">
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/ebdea-post-01.jpg" alt="Ebdea Digital Marketing Instagram post" loading="lazy"></div></div></div>
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/ebdea-post-02.jpg" alt="Ebdea Digital Marketing Instagram post" loading="lazy"></div></div></div>
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/ebdea-post-03.jpg" alt="Ebdea Digital Marketing Instagram post" loading="lazy"></div></div></div>
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/ebdea-post-04.jpg" alt="Ebdea Digital Marketing Instagram post" loading="lazy"></div></div></div>
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/ebdea-post-05.jpg" alt="Ebdea Digital Marketing Instagram post" loading="lazy"></div></div></div>
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/ebdea-post-06.jpg" alt="Ebdea Digital Marketing Instagram post" loading="lazy"></div></div></div>
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/ebdea-post-07.jpg" alt="Ebdea Digital Marketing Instagram post" loading="lazy"></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Salla Plus -->
+    <div class="brand" data-reveal>
+      <div class="brand__hero" data-parallax="0.04" data-reveal>
+        <div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/salla-hero.jpg" alt="Salla Plus Instagram campaign cover" loading="lazy"></div></div>
+        <div class="brand__heroOverlay"><span class="brand__num">05</span><h3>Salla Plus</h3><span class="brand__tag" data-i18n="social.salla.tag">E‑commerce Platform</span></div>
+      </div>
+      <div class="brand__body">
+        <p class="brand__overview" data-i18n="social.salla.overview">A sky‑blue and orange campaign for an e‑commerce platform — seasonal Saudi content paired with growth and conversion messaging built for store owners.</p>
+        <div class="brand__gallery">
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/salla-post-01.jpg" alt="Salla Plus Instagram post" loading="lazy"></div></div></div>
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/salla-post-02.jpg" alt="Salla Plus Instagram post" loading="lazy"></div></div></div>
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/salla-post-03.jpg" alt="Salla Plus Instagram post" loading="lazy"></div></div></div>
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/salla-post-04.jpg" alt="Salla Plus Instagram post" loading="lazy"></div></div></div>
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/salla-post-05.jpg" alt="Salla Plus Instagram post" loading="lazy"></div></div></div>
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/salla-post-06.jpg" alt="Salla Plus Instagram post" loading="lazy"></div></div></div>
+          <div class="brand__post" data-reveal><div class="reveal-img"><div class="reveal-img__inner"><img src="assets/social-media/salla-post-07.jpg" alt="Salla Plus Instagram post" loading="lazy"></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case__nav">
+      <a href="#cat-logo-design" data-cursor-hover data-i18n="social.nav.prev">← Logo Design</a>
+      <a href="#cat-visual-identity" data-cursor-hover data-i18n="social.nav.next">Visual Identity →</a>
+    </div>
+  </section>
+
+  <section class="case case--luvia" id="cat-visual-identity" data-category>
+    <a class="case__back" href="#portfolio" data-cursor-hover data-i18n="case.back">← All Categories</a>
+    <p class="eyebrow" data-reveal data-i18n="vi.eyebrow">Portfolio — Visual Identity</p>
+    <h2 class="mask-title reveal-mask" data-reveal><span>LUVIA Skincare &mdash; Brand &amp; Marketing Identity</span></h2>
+    <div class="case__meta luvia-meta" data-reveal>
+      <span><b data-i18n="vi.meta.brand">Brand</b> LUVIA</span>
+      <span><b data-i18n="vi.meta.industry">Industry</b> Skincare / Haircare</span>
+      <span><b data-i18n="vi.meta.scope">Scope</b> <span data-i18n="vi.meta.scopeval">Logo, packaging, product labels, mockups, social media, campaign visuals</span></span>
+      <span><b data-i18n="vi.meta.role">Role</b> <span data-i18n="vi.meta.roleval">Graphic Design / Art Direction / Brand Applications</span></span>
+    </div>
+    <p class="case__overview luvia-lead" data-reveal data-i18n="vi.overview">A complete skincare visual system built around natural ingredients, freshness, product clarity, and premium green beauty aesthetics.</p>
+
+    <figure class="luvia-hero" data-reveal>
+      <img src="assets/visual-identity/luvia-cover.png" alt="LUVIA skincare brand and marketing identity cover" loading="eager">
+    </figure>
+
+    <div class="luvia-case-flow">
+      <section class="luvia-section luvia-overview" data-reveal>
+        <div>
+          <span class="luvia-kicker" data-i18n="vi.kicker1">Brand Overview</span>
+          <h3 data-i18n="vi.h3.1">LUVIA as a natural care system</h3>
+        </div>
+        <p data-i18n="vi.p1">LUVIA is presented as a natural skincare and haircare brand with a clean botanical direction. The identity uses deep green tones, leaf-inspired visuals, white space, product-focused layouts, and fresh organic imagery to communicate purity, care, and trust.</p>
+      </section>
+
+      <section class="luvia-section luvia-logo-system">
+        <div class="luvia-section__head" data-reveal>
+          <span class="luvia-kicker" data-i18n="vi.kicker2">Logo System</span>
+          <h3 data-i18n="vi.h3.2">A refined serif wordmark with a botanical mark</h3>
+          <p data-i18n="vi.p2">The logo combines a premium wordmark with a leaf symbol, giving the brand a natural, elegant, and skincare-focused identity across light and dark applications.</p>
+        </div>
+        <div class="luvia-logo-grid">
+          <figure class="luvia-logo-card luvia-logo-card--light" data-reveal>
+            <img src="assets/visual-identity/luvia-logo-green.png" alt="Green LUVIA logo on light background" loading="lazy">
+            <figcaption data-i18n="vi.logo.caption1">Primary green logo</figcaption>
+          </figure>
+          <figure class="luvia-logo-card luvia-logo-card--dark" data-reveal>
+            <img src="assets/visual-identity/luvia-logo-white.png" alt="White LUVIA logo on dark green background" loading="lazy">
+            <figcaption data-i18n="vi.logo.caption2">White logo for dark green applications</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="luvia-section luvia-language" data-reveal>
+        <div class="luvia-section__head">
+          <span class="luvia-kicker" data-i18n="vi.kicker3">Visual Language</span>
+          <h3 data-i18n="vi.h3.3">Botanical, fresh, commercial</h3>
+        </div>
+        <div class="luvia-language-grid">
+          <ul class="luvia-token-list">
+            <li data-i18n="vi.token1">Deep botanical green palette</li>
+            <li data-i18n="vi.token2">Clean white space</li>
+            <li data-i18n="vi.token3">Leaf patterns and natural ingredient cues</li>
+            <li data-i18n="vi.token4">Water, freshness, and glow textures</li>
+            <li data-i18n="vi.token5">Soft product lighting</li>
+            <li data-i18n="vi.token6">Arabic and English campaign flexibility</li>
+          </ul>
+          <div class="luvia-atmosphere" aria-label="Supporting brand atmosphere cues">
+            <span data-i18n="vi.atm1">Macro leaves</span>
+            <span data-i18n="vi.atm2">Water droplets</span>
+            <span data-i18n="vi.atm3">Natural herbs</span>
+            <span data-i18n="vi.atm4">Hair texture</span>
+            <span data-i18n="vi.atm5">Clean shelf</span>
+            <span data-i18n="vi.atm6">Soft green background</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="luvia-section luvia-editorial">
+        <div class="luvia-copy" data-reveal>
+          <span class="luvia-kicker" data-i18n="vi.kicker4">Product Label Design</span>
+          <h3 data-i18n="vi.h3.4">From identity to product information</h3>
+          <p data-i18n="vi.p4">This stage shows how the identity becomes a functional product label, balancing logo visibility, product name, ingredient information, usage instructions, and packaging hierarchy.</p>
+        </div>
+        <figure class="luvia-image-card" data-reveal>
+          <img src="assets/visual-identity/luvia-label-design.png" alt="LUVIA Hair Revival Serum front and back product label design" loading="lazy">
+        </figure>
+      </section>
+
+      <section class="luvia-section">
+        <div class="luvia-section__head" data-reveal>
+          <span class="luvia-kicker" data-i18n="vi.kicker5">Packaging Development</span>
+          <h3 data-i18n="vi.h3.5">Blank mockup system to branded product family</h3>
+          <p data-i18n="vi.p5">The blank mockup establishes the product family structure, while the branded version applies the green LUVIA identity consistently across bottles, jars, serum containers, and skincare packaging.</p>
+        </div>
+        <div class="luvia-before-after">
+          <figure class="luvia-image-card" data-reveal>
+            <img src="assets/visual-identity/luvia-blank-mockups.png" alt="Blank skincare packaging mockup setup" loading="lazy">
+            <figcaption data-i18n="vi.caption.blank">Blank mockup system</figcaption>
+          </figure>
+          <figure class="luvia-image-card" data-reveal>
+            <img src="assets/visual-identity/luvia-packaging-mockup.png" alt="LUVIA branded packaging mockup applied to bottles and jars" loading="lazy">
+            <figcaption data-i18n="vi.caption.branded">LUVIA branded packaging mockup</figcaption>
+          </figure>
+        </div>
+        <div class="luvia-packaging-strip" data-reveal aria-label="Packaging development gallery">
+          <figure><img src="assets/visual-identity/luvia-blank-mockups.png" alt="Blank product mockup containers" loading="lazy"></figure>
+          <figure><img src="assets/visual-identity/luvia-packaging-mockup.png" alt="Branded LUVIA product package mockups" loading="lazy"></figure>
+          <figure><img src="assets/visual-identity/luvia-finished-packaging.png" alt="Finished LUVIA product packaging presentation" loading="lazy"></figure>
+        </div>
+      </section>
+
+      <section class="luvia-section luvia-cinematic" data-reveal>
+        <div class="luvia-copy">
+          <span class="luvia-kicker" data-i18n="vi.kicker6">Finished Packaging</span>
+          <h3 data-i18n="vi.h3.6">Polished commercial product presentation</h3>
+          <p data-i18n="vi.p6">The finished packaging presentation shows the brand in a polished commercial context, using green light, white packaging, and product arrangement to create a premium skincare look.</p>
+        </div>
+        <img src="assets/visual-identity/luvia-finished-packaging.png" alt="Finished LUVIA packaging with green studio lighting" loading="lazy">
+      </section>
+
+      <section class="luvia-section luvia-editorial luvia-editorial--reverse">
+        <div class="luvia-copy" data-reveal>
+          <span class="luvia-kicker" data-i18n="vi.kicker7">Digital Presence</span>
+          <h3 data-i18n="vi.h3.7">Social media identity</h3>
+          <p data-i18n="vi.p7">The social media direction keeps the logo visible and clean, translating the brand identity into Instagram and Facebook-style touchpoints.</p>
+        </div>
+        <figure class="luvia-image-card" data-reveal>
+          <img src="assets/visual-identity/luvia-social-media-preview.png" alt="LUVIA social media identity shown on mobile screens" loading="lazy">
+        </figure>
+      </section>
+
+      <section class="luvia-section">
+        <div class="luvia-section__head" data-reveal>
+          <span class="luvia-kicker" data-i18n="vi.kicker8">Campaign Visuals</span>
+          <h3 data-i18n="vi.h3.8">Product benefit, shine, freshness, and beauty care</h3>
+          <p data-i18n="vi.p8">These visuals combine product photography, botanical elements, Arabic copy, and strong green brand consistency to keep the campaign world recognizable.</p>
+        </div>
+        <div class="luvia-campaign-grid">
+          <figure class="luvia-image-card" data-reveal>
+            <img src="assets/visual-identity/luvia-campaign-posts-01.png" alt="LUVIA campaign visuals for hair and beauty products" loading="lazy">
+          </figure>
+          <figure class="luvia-image-card" data-reveal>
+            <img src="assets/visual-identity/luvia-campaign-posts-02.png" alt="LUVIA campaign visuals for hair revival and skincare serum application" loading="lazy">
+          </figure>
+        </div>
+      </section>
+
+      <section class="luvia-section luvia-feature">
+        <div class="luvia-copy" data-reveal>
+          <span class="luvia-kicker" data-i18n="vi.kicker9">Seasonal Campaigns</span>
+          <h3 data-i18n="vi.h3.9">Promotional energy without losing the brand</h3>
+          <p data-i18n="vi.p9">The seasonal campaign visuals show how the brand can adapt to special promotional moments while the green LUVIA system stays recognizable.</p>
+        </div>
+        <figure class="luvia-image-card" data-reveal>
+          <img src="assets/visual-identity/luvia-seasonal-campaigns.png" alt="Seasonal LUVIA promotional campaign visuals" loading="lazy">
+        </figure>
+      </section>
+
+      <section class="luvia-section luvia-feature luvia-feature--fresh">
+        <div class="luvia-copy" data-reveal>
+          <span class="luvia-kicker" data-i18n="vi.kicker10">Freshness &amp; Product Benefits</span>
+          <h3 data-i18n="vi.h3.10">Natural skincare storytelling</h3>
+          <p data-i18n="vi.p10">These visuals focus on freshness, cleansing, glow, water, and natural skincare benefits, extending the identity beyond packaging into emotional product storytelling.</p>
+        </div>
+        <figure class="luvia-image-card" data-reveal>
+          <img src="assets/visual-identity/luvia-freshness-posts.png" alt="LUVIA freshness and product benefit visuals" loading="lazy">
+        </figure>
+      </section>
+
+      <figure class="luvia-closing" data-reveal>
+        <img src="assets/visual-identity/luvia-thank-you.png" alt="LUVIA thank you closing slide with Ahmed Baz branding" loading="lazy">
+      </figure>
+    </div>
+
+    <div class="case__nav">
+      <a href="#cat-social-media" data-cursor-hover data-i18n="vi.nav.prev">← Social Media</a>
+      <a href="#cat-banners-print" data-cursor-hover data-i18n="vi.nav.next">Banners &amp; Print →</a>
+    </div>
+  </section>
+
+  <section class="case" id="cat-banners-print" data-category>
+    <a class="case__back" href="#portfolio" data-cursor-hover data-i18n="case.back">← All Categories</a>
+    <p class="eyebrow" data-reveal data-i18n="banners.eyebrow">Portfolio — Banners &amp; Print</p>
+    <h2 class="mask-title reveal-mask" data-reveal><span data-i18n="banners.headline">Print &amp; Packaging Collection</span></h2>
+    <div class="case__meta" data-reveal><span data-i18n="banners.meta.category">Category</span><strong data-i18n="banners.meta.value">Banners &amp; Print</strong></div>
+    <p class="case__overview" data-reveal data-i18n="banners.overview">Print and packaging work where material, type, and colour have to carry the brand without saying a word.</p>
+
+    <div class="case__blocks">
+
+      <div class="case__block">
+        <div class="case__block-sticky">
+          <span class="case__block-num" data-reveal>001</span>
+          <h3 class="reveal-mask" data-reveal><span data-i18n="banners.block1.title">Brief</span></h3>
+          <p data-reveal data-i18n="banners.block1.desc">Each piece needed to hold up in the hand — not just look good as a flat file.</p>
+        </div>
+        <div class="case__block-scroll">
+          <div class="case__block-img" data-reveal>
+            <div class="reveal-img"><div class="reveal-img__inner"><img src="assets/banners-print/bp-01-banner.jpg" alt="Print banner" loading="lazy"></div></div>
+          </div>
+          <span class="case__block-caption" data-reveal data-i18n="banners.caption1">Print Banner</span>
+        </div>
+      </div>
+
+      <div class="case__block">
+        <div class="case__block-sticky">
+          <span class="case__block-num" data-reveal>002</span>
+          <h3 class="reveal-mask" data-reveal><span data-i18n="banners.block2.title">Direction</span></h3>
+          <p data-reveal data-i18n="banners.block2.desc">Material‑aware design: choices driven by how something would actually be printed, folded, or held.</p>
+        </div>
+        <div class="case__block-scroll">
+          <div class="case__block-img" data-reveal>
+            <div class="reveal-img"><div class="reveal-img__inner"><img src="assets/banners-print/bp-00-direction.jpg" alt="Print and packaging direction" loading="lazy"></div></div>
+          </div>
+          <span class="case__block-caption" data-reveal data-i18n="banners.caption2">Material Studies</span>
+        </div>
+      </div>
+
+      <div class="case__block">
+        <div class="case__block-sticky">
+          <span class="case__block-num" data-reveal>003</span>
+          <h3 class="reveal-mask" data-reveal><span data-i18n="banners.block3.title">System</span></h3>
+          <p data-reveal data-i18n="banners.block3.desc">Banner, flyer, and brochure share one structure, so a customer recognises the brand before they read a word.</p>
+        </div>
+        <div class="case__block-scroll">
+          <div class="case__block-img" data-reveal>
+            <div class="reveal-img"><div class="reveal-img__inner"><img src="assets/banners-print/bp-02-packaging.jpg" alt="Packaging box" loading="lazy"></div></div>
+          </div>
+          <span class="case__block-caption" data-reveal data-i18n="banners.caption3">Packaging Box</span>
+          <div class="case__block-img" data-reveal>
+            <div class="reveal-img"><div class="reveal-img__inner"><img src="assets/banners-print/bp-03-flyer.jpg" alt="Flyer layout" loading="lazy"></div></div>
+          </div>
+          <span class="case__block-caption" data-reveal data-i18n="banners.caption4">Flyer Layout</span>
+        </div>
+      </div>
+
+      <div class="case__block">
+        <div class="case__block-sticky">
+          <span class="case__block-num" data-reveal>004</span>
+          <h3 class="reveal-mask" data-reveal><span data-i18n="banners.block4.title">Output</span></h3>
+          <p data-reveal data-i18n="banners.block4.desc">A cohesive set of print and packaging pieces, each tuned to its own format and use case.</p>
+        </div>
+        <div class="case__block-scroll">
+          <div class="case__block-img" data-reveal>
+            <div class="reveal-img"><div class="reveal-img__inner"><img src="assets/banners-print/bp-04-brochure.jpg" alt="Brochure spread" loading="lazy"></div></div>
+          </div>
+          <span class="case__block-caption" data-reveal data-i18n="banners.caption5">Brochure Spread</span>
+          <div class="case__block-img" data-reveal>
+            <div class="reveal-img"><div class="reveal-img__inner"><img src="assets/banners-print/bp-05-outdoor.jpg" alt="Outdoor signage" loading="lazy"></div></div>
+          </div>
+          <span class="case__block-caption" data-reveal data-i18n="banners.caption6">Outdoor Signage</span>
+          <div class="case__block-img" data-reveal>
+            <div class="reveal-img"><div class="reveal-img__inner"><img src="assets/banners-print/bp-06-label.jpg" alt="Label design" loading="lazy"></div></div>
+          </div>
+          <span class="case__block-caption" data-reveal data-i18n="banners.caption7">Label Design</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="case__nav">
+      <a href="#cat-visual-identity" data-cursor-hover data-i18n="banners.nav.prev">← Visual Identity</a>
+      <a href="#cat-art" data-cursor-hover data-i18n="banners.nav.next">Art →</a>
+    </div>
+  </section>
+
+  <section class="case case--art" id="cat-art" data-category>
+    <a class="case__back" href="#portfolio" data-cursor-hover data-i18n="case.back">← All Categories</a>
+    <p class="eyebrow" data-reveal data-i18n="art.eyebrow">Portfolio — Art</p>
+    <h2 class="mask-title reveal-mask" data-reveal><span data-i18n="art.headline">Character Design &amp; Visual Development</span></h2>
+    <div class="case__meta" data-reveal><span data-i18n="art.meta.category">Category</span><strong data-i18n="art.meta.value">Art / Illustration</strong></div>
+    <p class="case__overview art__lead" data-reveal data-i18n="art.overview">A collection of stylized character studies exploring silhouette, proportion, attitude, and visual storytelling.</p>
+
+    <figure class="art-frame art-frame--wide art-frame--hero" data-reveal data-parallax="0.018">
+      <img src="assets/art/art-hero-final.png" alt="Final colored character lineup with Character Design title" loading="lazy">
+    </figure>
+
+    <div class="art-intro" data-reveal>
+      <p data-i18n="art.intro">This series explores how strong silhouettes can define character personality before details, color, or rendering are added. Each design begins with a readable black shape, then develops into a finished stylized character with costume, expression, pose, and visual attitude.</p>
+    </div>
+
+    <figure class="art-frame art-frame--wide art-frame--process" data-reveal data-parallax="0.012">
+      <img src="assets/art/art-hero-silhouette.png" alt="Silhouette lineup of the character designs" loading="lazy">
+      <figcaption data-i18n="art.silhouette.caption">Silhouette lineup &mdash; testing the readability, scale, and personality of each character before final rendering.</figcaption>
+    </figure>
+
+    <div class="art-studies">
+      <article class="art-study">
+        <div class="art-study__copy" data-reveal>
+          <span class="art-study__num">Block 01</span>
+          <h3 data-i18n="art.block1.title">The Elder Strategist</h3>
+          <p data-i18n="art.block1.desc">A crouching elder character built around tension, suspicion, and tactical presence. The silhouette focuses on the hunched posture, turban shape, clenched fist, and angular body language before the final version adds costume, facial expression, and cultural styling.</p>
+        </div>
+        <div class="art-compare">
+          <figure class="art-card art-card--silhouette" data-reveal>
+            <span class="art-card__label" data-i18n="art.silhouette.label">Silhouette Study</span>
+            <div class="art-card__image"><img src="assets/art/elder-silhouette.png" alt="Silhouette study for the crouching elder character" loading="lazy"></div>
+          </figure>
+          <figure class="art-card art-card--final" data-reveal>
+            <span class="art-card__label" data-i18n="art.final.label">Final Render</span>
+            <div class="art-card__image"><img src="assets/art/elder-final.png" alt="Final colored render of the crouching elder character" loading="lazy"></div>
+          </figure>
+        </div>
+      </article>
+
+      <article class="art-study">
+        <div class="art-study__copy" data-reveal>
+          <span class="art-study__num">Block 02</span>
+          <h3 data-i18n="art.block2.title">The Hooked Creature</h3>
+          <p data-i18n="art.block2.desc">A creature design focused on exaggerated anatomy, aggressive posture, and weapon-driven identity. The silhouette establishes the monster's curved spine, sharp head shape, long limbs, and oversized hooked weapon before the final render adds texture, armor, skin markings, and color contrast.</p>
+        </div>
+        <div class="art-compare">
+          <figure class="art-card art-card--silhouette" data-reveal>
+            <span class="art-card__label" data-i18n="art.silhouette.label">Silhouette Study</span>
+            <div class="art-card__image"><img src="assets/art/creature-silhouette.png" alt="Silhouette study for the hooked creature character" loading="lazy"></div>
+          </figure>
+          <figure class="art-card art-card--final" data-reveal>
+            <span class="art-card__label" data-i18n="art.final.label">Final Render</span>
+            <div class="art-card__image"><img src="assets/art/creature-final.png" alt="Final colored render of the hooked creature character" loading="lazy"></div>
+          </figure>
+        </div>
+      </article>
+
+      <article class="art-study">
+        <div class="art-study__copy" data-reveal>
+          <span class="art-study__num">Block 03</span>
+          <h3 data-i18n="art.block3.title">The Giant Fighter</h3>
+          <p data-i18n="art.block3.desc">A powerful stylized character built on extreme proportion contrast: massive torso and arms against thin legs. The silhouette makes the character instantly recognizable, while the final render adds clothing details, wooden mechanical arms, warm colors, and a humorous heroic personality.</p>
+        </div>
+        <div class="art-compare">
+          <figure class="art-card art-card--silhouette" data-reveal>
+            <span class="art-card__label" data-i18n="art.silhouette.label">Silhouette Study</span>
+            <div class="art-card__image"><img src="assets/art/giant-silhouette.png" alt="Silhouette study for the giant fighter character" loading="lazy"></div>
+          </figure>
+          <figure class="art-card art-card--final" data-reveal>
+            <span class="art-card__label" data-i18n="art.final.label">Final Render</span>
+            <div class="art-card__image"><img src="assets/art/giant-final.png" alt="Final colored render of the giant fighter character" loading="lazy"></div>
+          </figure>
+        </div>
+      </article>
+
+      <article class="art-study">
+        <div class="art-study__copy" data-reveal>
+          <span class="art-study__num">Block 04</span>
+          <h3 data-i18n="art.block4.title">The Young Duo</h3>
+          <p data-i18n="art.block4.desc">A character-pair study based on contrast: one tall, calm, protective figure and one short, angry, energetic figure. The silhouette stage tests the relationship between their sizes and attitudes, while the final render adds expression, costume, and story tension.</p>
+        </div>
+        <div class="art-compare">
+          <figure class="art-card art-card--silhouette" data-reveal>
+            <span class="art-card__label" data-i18n="art.silhouette.label">Silhouette Study</span>
+            <div class="art-card__image"><img src="assets/art/duo-silhouette.png" alt="Silhouette study for the two young characters" loading="lazy"></div>
+          </figure>
+          <figure class="art-card art-card--final" data-reveal>
+            <span class="art-card__label" data-i18n="art.final.label">Final Render</span>
+            <div class="art-card__image"><img src="assets/art/duo-final.png" alt="Final colored render of the two young characters" loading="lazy"></div>
+          </figure>
+        </div>
+      </article>
+    </div>
+
+    <figure class="art-frame art-frame--wide art-frame--closing" data-reveal data-parallax="0.01">
+      <img src="assets/art/art-hero-final.png" alt="Final character lineup combining the individual studies" loading="lazy">
+      <figcaption data-i18n="art.closing.caption">Final character lineup &mdash; combining the individual studies into one cohesive visual system.</figcaption>
+    </figure>
+
+    <div class="case__nav">
+      <a href="#cat-banners-print" data-cursor-hover data-i18n="art.nav.prev">← Banners &amp; Print</a>
+      <a href="#cat-logo-design" data-cursor-hover data-i18n="art.nav.next">Logo Design →</a>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="contact" id="contact">
+    <p class="eyebrow" data-reveal data-i18n="contact.eyebrow">Contact — 03</p>
+    <h2 class="mask-title" data-reveal><span data-i18n="contact.headline">Let's build a visual system that feels sharp, clear, and impossible to ignore.</span></h2>
+
+    <div class="contact__grid" data-reveal>
+      <div class="contact__block">
+        <span class="info-card__label" data-i18n="contact.email.label">Email</span>
+        <a href="mailto:thebazist@gmail.com" data-cursor-hover aria-label="Email Ahmed El Baz">thebazist@gmail.com</a>
+      </div>
+      <div class="contact__block">
+        <span class="info-card__label" data-i18n="contact.phone.label">Phone</span>
+        <a href="tel:+201026509861" data-cursor-hover aria-label="Call Ahmed El Baz">+20 102 650 9861</a>
+      </div>
+      <div class="contact__block">
+        <span class="info-card__label" data-i18n="contact.location.label">Location</span>
+        <a href="https://www.google.com/maps/search/?api=1&query=Mansoura%2C%20Egypt" target="_blank" rel="noopener noreferrer" data-cursor-hover class="contact__meta" aria-label="View Mansoura, Egypt on Google Maps"><span class="glass-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2C8 2 4 6 4 10c0 6 8 12 8 12s8-6 8-12c0-4-4-8-8-8z"></path><circle cx="12" cy="10" r="2" fill="currentColor"></circle></svg></span> <span data-i18n="contact.location.value">Mansoura, Egypt</span></a>
+      </div>
+      <div class="contact__block">
+        <span class="info-card__label" data-i18n="contact.social.label">Social</span>
+        <a href="https://www.behance.net/ahmedel-baz" target="_blank" rel="noopener noreferrer" data-cursor-hover aria-label="Open Ahmed El Baz Behance profile"><span class="glass-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8"></circle><path d="M8 12h8"></path></svg></span> <span data-i18n="contact.behance">Behance</span></a>
+        <a href="https://www.linkedin.com/in/ahmed-el-baz-57165824a/" target="_blank" rel="noopener noreferrer" data-cursor-hover aria-label="Open Ahmed El Baz LinkedIn profile"><span class="glass-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="3.5" width="17" height="17" rx="3"></rect><path d="M8 12h8"></path></svg></span> <span data-i18n="contact.linkedin">LinkedIn</span></a>
+        <a href="https://wa.me/201026509861" target="_blank" rel="noopener noreferrer" data-cursor-hover aria-label="Chat with Ahmed El Baz on WhatsApp"><span class="glass-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A8.9 8.9 0 0 1 12.2 22 9 9 0 0 1 3 12.2 8.9 8.9 0 0 1 12.8 3 9 9 0 0 1 21 12.8z"></path><path d="M17.5 15.5c-.3-.2-1-.5-1.6-.6-.4-.1-.8 0-1.1.3l-.5.5c-.2.2-.5.3-.8.2-1.1-.4-3.2-2.1-4.6-3.8-.6-.8-.6-1.2-.3-1.5l.4-.5c.3-.3.4-.7.2-1.1-.2-.6-.4-1.3-.6-1.6-.3-.3-.8-.5-1.1-.4-.5.1-1.9.8-2.2 1.1-.3.3-.9 1-.9 2.3 0 1.3.9 3.2 2 4.9 1 1.6 3.4 3.7 5 4.3 1.6.6 2.8.7 3.2.6.4-.1 1.3-.6 1.5-1.2.2-.6.2-1.1.1-1.3-.1-.2-.5-.4-.8-.6z"></path></svg></span> <span data-i18n="contact.whatsapp">WhatsApp</span></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="footer__top">
+    <span class="footer__mark">
+      Ahmed El&nbsp;Baz <span lang="ar" dir="rtl" class="signature">باز</span>
+    </span>
+  </div>
+  <div class="footer__grid">
+    <div>
+      <span class="info-card__label" data-i18n="footer.social.label">Social</span>
+      <a href="https://www.behance.net/ahmedel-baz" target="_blank" rel="noopener noreferrer" data-cursor-hover aria-label="Open Ahmed El Baz Behance profile" data-i18n="footer.behance">Behance</a>
+      <a href="https://www.linkedin.com/in/ahmed-el-baz-57165824a/" target="_blank" rel="noopener noreferrer" data-cursor-hover aria-label="Open Ahmed El Baz LinkedIn profile" data-i18n="footer.linkedin">LinkedIn</a>
+      <a href="https://wa.me/201026509861" target="_blank" rel="noopener noreferrer" data-cursor-hover aria-label="Chat with Ahmed El Baz on WhatsApp" data-i18n="footer.whatsapp">WhatsApp</a>
+    </div>
+    <div>
+      <span class="info-card__label" data-i18n="footer.location.label">Location</span>
+      <span data-i18n="footer.location.value">Mansoura, Egypt</span>
+    </div>
+    <div>
+      <span class="info-card__label" data-i18n="footer.availability.label">Availability</span>
+      <span data-i18n="footer.availability.value">Open to new projects</span>
+    </div>
+    <div>
+      <span class="info-card__label" data-i18n="footer.expertise.label">Expertise</span>
+      <span data-i18n="footer.expertise.value">Branding · Social Media · Art Direction</span>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span data-i18n="footer.copyright">© 2026 Ahmed El Baz. All rights reserved.</span>
+    <a href="#home" data-cursor-hover data-i18n="footer.backtotop">Back to top ↑</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
